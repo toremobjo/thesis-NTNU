@@ -1,16 +1,24 @@
 \documentclass[british,titlepage]{ntnuthesis}
+\usepackage{upgreek}
 
-\title{An NTNU Thesis \LaTeX{} Document Class}
-\shorttitle{An NTNU Thesis Document Class}
-\author{Community of Practice in Computer Science Education at NTNU}
-\shortauthor{CoPCSE$@$NTNU}
-\date{CC-BY \ntnuthesisdate}
+
+
+\title{Applied adaptive and collaborative sampling for autonomous underwater vehicles}
+\shorttitle{Adaptive sampling with marine robots}
+\author{Tore Mo-Bjørkelund \\ Department of Marine Technology \\ Norwegian University of Science and Technology}
+\shortauthor{Tore Mo-Bjørkelund}
+\date{\today}
 
 \addbibresource{thesis.bib}
 
 \input{glossary.tex} % add glossary and acronym lists before document
 
 \begin{document}
+
+\begin{quote}
+    Kings and lords come and go and leave nothing but statues in a desert, while a couple of young men tinkering in a workshop change the way the world works. \\
+     - Terry Pratchett, The Truth, 2000
+\end{quote}
 
 \input{chapters/0a-abstract.tex}
 \input{chapters/0b-sammendrag.tex}
@@ -25,15 +33,16 @@
 \printglossary                    % Print glossary
 
 \input{chapters/1-introduction}
-
-\input{chapters/2-usage.tex}
-\input{chapters/3-structure.tex}
-\input{chapters/4-conclusion.tex}
-
+\input{chapters/2-background.tex}
+\input{chapters/2-modelling}
+\input{chapters/3-path-planning}
+\input{chapters/4-multivehicle}
+\input{chapters/5-example}
+\input{chapters/6-summary}
 \chapter*{\bibname}
 \printbibliography[heading=none]
 
-\input{chapters/papers.tex}
+%\input{chapters/papers.tex}
 
 \appendix
 \input{appendices/a-appendix.tex}

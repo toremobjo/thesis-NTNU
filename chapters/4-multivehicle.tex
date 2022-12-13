@@ -1,0 +1,47 @@
+\chapter{Multi-vehicle operations}
+\label{chapter:multivehicle}
+
+
+The exploration problem with multiple sampling platforms was formalized in a sequential decision-theoretic planning under uncertainty framework termed the multi-robot adaptive sampling problem \cite{low2009multi}.  For efficient multi vehicle adaptive sampling, data sharing between agents is essential for on-board model error reduction\cite{kemna2016adaptive,berget2022adaptive}. Communication and data sharing between agents is one of the biggest challenges in multi-vehicle robotic operations in the ocean. It has been shown that error reduction of on-board models is dependent on the quality of the communication between agents \cite{kemna2016adaptive}. Communication-constrained multi-vehicle operations were undertaken off the California coast, using a fleet of AUVs, communicating over the horizon by IRIDIUM\textsuperscript{\textregistered}\cite{maine1995overview,pratt1999operational}, the Autonomous Ocean Sampling Network-II (AOSN-II) deployed a multi-month mission to map coastal waters \cite{leonard2007collective}, in an effort to develop a sustainable, portable, and adaptive ocean sampling system. In this chapter, the constraints and presented solutions from the literature and enclosed papers are briefly presented. When doing multi-vehicle adaptive operations, it is often assumed that the vehicles can 
+communicate in some way. 
+
+
+\section{Communication}
+The communication alternatives available to underwater robotics are either based on electromagnetic or acoustic waves. As electromagnetic radiation travels at vastly greater speeds than sound, even in water, it is capable of carrying more information. Water is, however, opaque to electromagnetic radiation, with the band of visible light being the wavelength most apt at penetrating the ocean before being attenuated. Modern optical modems \cite{leon2017new} are capable of transmitting data at high rates at ranges up to $100$m, depending on the water quality. This is a far cry from the kilometer ranges achieved by acoustic modems. The choice of communication channel shapes the strategy of the vehicles for exchanging data with each other and possibly the operator, as a first approximation, Table \ref{tab:communication} can be used as a guide when deciding and designing such a strategy. 
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+         \hline
+         & Works underwater & Long range & High speed\\
+       \hline \hline 
+        Wifi  & - & + & +++\\
+        \hline 
+        Satellite & - & +++ & - -\\ 
+        \hline 
+        Cellular (4/5G) & - & ++ & ++ \\
+        \hline 
+        Optical & + & - - - & ++ \\ 
+        \hline 
+        Acoustic & + & + & - - \\
+        \hline
+    \end{tabular}
+    \caption{Overview over possible communication channels for marine robots, with their capabilities and limitations indicated.}
+    \label{tab:communication}
+\end{table}
+
+\subsection{Over the air}
+Over-the-air, or radio, communication is the use of electromagnetic transmitters and receivers to send and receive messages. WiFi, satellite communication, and cellular communication all fall in this category. They are constrained, as acoustic waves are, by the coupling between range and frequency. While high frequencies can carry large bandwidths, they are prone to attenuation and can carry that data a shorter range than the long-range communications. Wireless radio communication, such as WiFi, usually requires a base station, but can be done peer-to-peer. Depending on antenna set up, the communication range can be in excess of a few kilometers, which can limit the operation in cases where vehicles need to exchange data via WiFi\cite{kemna2018multi}. Synchronization need not always be a problem, if there is an intermediary in the middle, such as a surface vessel. Further, WiFi usually has a large bandwidth, enabling the exchange of large amounts of data. Cellular, 4G, and 5G communication are all constrained by the extent of base stations. While satellite communication such as IRIDIUM\textsuperscript{\textregistered}\cite{maine1995overview,pratt1999operational} has global coverage (used in \textbf{paper C}), the open ocean has sparse to none cellular coverage. Depending on the application, the operators usually have to choose between these two "over the horizon" options, weighing bandwidth against coverage for the operation. 
+
+\subsection{Underwater communication}
+As the range of optical modems is severely limited, and not used for vehicle-to-vehicle communication in these applications, they are only mentioned here, and will not be elaborated upon any further here. Sound is the light of the ocean,  with whale song travelling for hundreds of kilometers along acoustic channels. For practical applications of underwater acoustic communication, there is also a trade off between range and bandwidth. Whereas low frequency systems can transmit sound over vast distances, the shorter wavelengths usually used for data transmission gets attenuated after a few kilometers\cite{stojanovic1996recent}. Another confounding factor for acoustic communication is the vertical profile of the speed of sound. Depending on the profile and from Snell's law, it is possible to get "deaf zones" or "muted zones" where two transponders are unable to hear each other or one fails to hear another due to ray-bending. This effect is especially prominent in stratified waters, and can lead to a vastly deteriorated communication range. Using underwater communication for exchanging robot position information between robots within range has been suggested\cite{berget2022adaptive}, and data exchange and waypoint updates with a surface unit was shown in the \acrfull{swarms} project \cite{real2016smart}. 
+
+\section{Coordination}
+Multi vehicle missions can have different levels of coordination, ranging from independent agents acting without any coordination to an interconnected swarm network. Further, the coordination may serve different purposes, with data exchange, collision avoidance, and governance as the chief goals.  
+
+\subsection{Path planning}
+Running a multi vehicle adaptive mission can be done two ways from a path planning perspective; on board or by a central agent. In the AOSN-II project \cite{leonard2007collective}, the gliders were coordinated, and got new waypoints from a central hub, whereas in \textbf{paper C}, the central hub was used for data exchange.  
+
+\subsection{Collision avoidance and redundant sensors}
+
+\subsection{Data exchanges}
